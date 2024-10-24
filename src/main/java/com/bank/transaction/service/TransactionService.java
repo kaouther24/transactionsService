@@ -33,14 +33,14 @@ public class TransactionService {
         if (transactions == null) {
             transactions = getTransactions();
         }
-        return transactions.stream().filter(transaction -> transaction.getUuid().equalsIgnoreCase(transactionUuid)).findFirst();
+        return transactions.stream().filter(transaction -> transaction.getUuid().equals(transactionUuid)).findFirst();
     }
 
     public List<Transaction> findAllTransactionsByAccount(String accountUuid) throws IOException {
         if (transactions == null) {
             transactions = getTransactions();
         }
-        return transactions.stream().filter(transaction -> transaction.getAccountUuid().equalsIgnoreCase(accountUuid)).toList();
+        return transactions.stream().filter(transaction -> transaction.getAccountUuid().equals(accountUuid)).toList();
     }
 
     public List<Transaction> addNewTransaction(Transaction newTransaction) throws IOException {
